@@ -1,0 +1,90 @@
+/* .abc{
+    font-family: 'Courier New', Courier, monospace;
+} */
+
+
+/* .bbh-sans-bartle-regular {
+  font-family: "BBH Sans Bartle", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'font1';
+    src: url('./PlaywriteDEGrundGuides-Regular.ttf');
+}
+
+.abc{
+    font-family: 'font1';
+} */
+
+/* .abc{
+    font-size: larger;
+} */
+/* 
+.abc{
+    font-size: 50%;
+} */
+
+
+/* .abc{
+    font-size: 20px;
+} */
+
+
+/* .abc{
+    font-weight: 900;
+} */
+
+
+/* .abc{
+    font-style: italic;
+} */
+
+
+/* 
+.abc{
+    text-transform: capitalize;
+} */
+
+/* 
+.abc{
+    text-transform: lowercase;
+} */
+
+
+
+/* .abc{
+    text-transform: uppercase;
+} */
+
+/* a{
+    text-decoration: none;
+} */
+
+/* h1{
+    line-height: 20px;
+    background-color: aquamarine;
+} */
+
+/* .abc{
+    word-spacing: 20px;
+}
+
+.xyz{
+    letter-spacing: 5px;
+} */
+
+/* h1{
+    text-align: center;
+} */
+
+
+/* h1{
+    text-align: right;
+}*/
+
+h1 {
+ background-image: url("./image2.png");
+ /* background-repeat: no-repeat; */
+ text-indent: 20px;}

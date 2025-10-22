@@ -1,0 +1,35 @@
+/* p{
+    text-shadow: 5px 5px 3px #000;
+}
+
+.abc{
+    text-shadow: -5px -5px 2px red;
+}
+
+.abcd{
+    text-shadow: 5px 5px yellow;
+} */
+
+
+/* .abc::first-letter{
+   font-size: 200%;
+}
+
+.xyz::first-line{
+    font-weight: 900;
+} */
+
+/* a:link{
+    text-decoration: none;
+    text-decoration: underline;
+} */
+
+/* a:active{
+
+} */
+
+/* a:hover{
+    background-color: red;
+    color: white;
+} */
+

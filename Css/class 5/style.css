@@ -1,0 +1,34 @@
+/* .abc:hover{
+   background-color: aquamarine;
+} */
+/* 
+.abc:focus{
+    background-color: blue;
+    color: white;
+} */
+
+/* .abc:active{
+    background-color: blue;
+    color: white;
+}  */
+
+
+/* .ab{
+    min-width: 50px;
+    max-width: 70px;
+    background-color: yellow
+} */
+
+.abc{
+    width: 100px;
+    background-color: aquamarine;
+    height: 250px;
+    overflow: hidden;
+}
+
+.abcd{
+    width: 100px;
+    background-color: beige;
+    height: 250px;
+    overflow: scroll;
+}

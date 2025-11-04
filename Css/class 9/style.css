@@ -1,0 +1,90 @@
+/* .main{
+    background-color: black;
+    height: 200px;
+    padding: 5px;
+    display: flex; */
+    /* flex-wrap: wrap; */
+    /* flex-direction: column; */
+    /* justify-content: space-evenly; */
+    /* align-items: center; */
+
+
+/* } */
+
+/* .child{
+    width: 30px;
+    height: 20px;
+    margin: 5px;
+    padding: 5px;
+} */
+
+/* .one{
+    background-color: antiquewhite;
+    order: 0;
+} */
+
+/* .two{
+    background-color: aqua;
+    align-self: center;
+    order: -1;
+} */
+/* 
+.three{
+    background-color: brown;
+}
+
+.four{
+    background-color: cadetblue;
+}
+
+.five{
+    background-color: yellow;
+}
+
+.six{
+    background-color: beige;
+}
+
+.seven{
+    background-color: burlywood;
+}
+
+.eight{
+    background-color: cadetblue;
+
+}
+
+.nine{
+   background-color: red;
+}
+
+.ten{
+   background-color: blue;
+}
+
+.eleven{
+   background-color: green;
+}
+
+.twelve{
+   background-color: yellowgreen;
+}
+
+.thirteen{
+   background-color: palevioletred;
+}
+
+.fourteen{
+   background-color: wheat;
+}
+
+.fifteen{
+   background-color: bisque;
+} */
+
+
+ol {
+ /* list-style-type: lower-roman; */
+ list-style-type: upper-roman;
+    
+}

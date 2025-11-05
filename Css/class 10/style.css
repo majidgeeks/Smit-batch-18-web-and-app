@@ -1,0 +1,54 @@
+/* ul.one{
+    background-color: aqua;
+    list-style-position: inside;
+}
+
+ul.two{
+    background-color: brown;
+    list-style-position: outside;
+} */
+
+/* table{
+    border: 1px solid yellow;
+    border-collapse:collapse ;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    
+} */
+
+/* td{
+    border: 1px solid yellow;
+    padding: 5px;
+    text-align: left;
+    empty-cells: hide;
+} */
+
+/* td:hover{
+    background-color: aqua;
+    color: black;
+    transform: scale(1.2);
+    transition: 0.5s;
+
+} */
+
+
+label{
+    display: inline-block;
+    width: 68px;
+    text-align: left;
+}
+
+input{
+        width: 200px;
+        margin-top: 20px;
+
+}
+
+.email{
+    background-image: url('https://png.pngtree.com/png-vector/20190129/ourmid/pngtree-email-vector-icon-png-image_355828.jpg');
+    background-position: left;
+    background-size: 20px;
+    background-repeat: no-repeat;   
+    padding-left: 20px; 
+    }

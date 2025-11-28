@@ -13,6 +13,7 @@
 // 2. number
 // 3.undefined
 // 4.null 
+//    5. boolean = true / false
 
 // Non prmitive data types 
 
@@ -22,6 +23,17 @@ let name1 = undefined
 name1 = ''
 var name3 = 0
 const war = 'america'
-// war = 12;
-let myWorld;
-myWorld = 'it is'
+// let myWorld;
+// myWorld = 'it is'
+
+// if(war == 'america'){
+    
+// }
+var war2 = 12;
+
+if(war2 === 10){
+   alert('yes it is ')
+}
+else{
+    alert('not')
+}

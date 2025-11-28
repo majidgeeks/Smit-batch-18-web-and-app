@@ -1,0 +1,53 @@
+:root{
+    --bg1:red;
+    --bg2:yellow;
+    --wid1:100px;
+}
+
+td{
+    background-color: var(--bg1);
+    padding: 10px;
+    border: 2px solid black;
+    width: var(--wid1);
+}
+
+
+table.two{
+    /* border-collapse: collapse; */
+    border-collapse:inherit;
+}
+
+/* @keyframes moveBox { */
+    /* 0% { transform: translateX(0); } */
+    /* 0%{transform: translateY(0);} */
+    /* 10%{transform: translateY(100px);} */
+    /* 100% { transform: translateX(200px); } */
+    /* 20%{transform: rotate(0);} */
+    /* 10%{ transform: translateX(100px) rotate(360deg) scale(1.2);} */
+     /* 50% { background: yellow; } */
+  /* 100% { background: green; } */
+  /* 10%{background: red;} */
+
+/* } */
+
+/* @keyframes moveRight { */
+  /* 0% { transform: translateX(0); }
+  100% { transform: translateX(300px); } */
+  /* 0% { transform: translateY(0); } */
+  /* 100% { transform: translateY(100px); } */
+/* } */
+
+@keyframes rotateBox {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+table.one{
+    border-spacing: 5px;
+     /* animation: moveRight 5s infinite */
+    /* animation: moveBox 5s ; */
+    animation: rotateBox 1s infinite;
+
+}

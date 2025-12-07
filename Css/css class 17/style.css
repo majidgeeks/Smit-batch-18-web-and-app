@@ -1,0 +1,22 @@
+.abc{
+    background-color: antiquewhite;
+}
+
+ @media only screen and (max-width: 576px) {
+    .abc{
+        background-color: blue;
+    }
+ }
+
+ .myClass{
+    background-color: aqua;
+ }
+
+ @media only screen and (min-width : 414px){
+    .myClass{
+       width: 200px;
+       height: 100px;
+       background-color: blueviolet;
+       color: white;
+    }
+ }

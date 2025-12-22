@@ -11,7 +11,7 @@ for(var i = 0; i < cities.length; i++){
 }
 };
 
-if(userInput != cities[i]){
+if(isValid == false){
     alert('you are not eligible');
     isValid = false;
 }

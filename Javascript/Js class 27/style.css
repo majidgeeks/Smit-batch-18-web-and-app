@@ -1,0 +1,12 @@
+.div{
+    background-color: burlywood;
+    width: 500px;
+
+}
+
+.parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

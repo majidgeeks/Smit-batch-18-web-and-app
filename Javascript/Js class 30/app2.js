@@ -23,10 +23,12 @@
 // }
 
 
-// let test = () => { console.log('testing')}
+// let test = (this) => {
+//  console.log(this)
+// }
 
 // test();
 
-let test = () => console.log('test');
+// let test = () => console.log('test');
 
-test();
+// test();

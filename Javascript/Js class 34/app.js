@@ -9,7 +9,7 @@
 // console.log(attList[0].nodeValue);
 
 //  var parentDiv = document.getElementById("div1");
-//  var newParagraph = document.createElement("p");
+//  var newParagraph = document.createElement("p").innerHTML = 'HRLLO';
 //  var t = document.createTextNode("Hello world!");
 //  newParagraph.appendChild(t);
 //  let paragraph1 = parentDiv.firstChild;

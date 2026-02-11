@@ -24,12 +24,13 @@
 // console.log(obj3.item1);
 // console.log(obj3);
 
-// let sum = function(a, b) {
+// Object.prototype.sum = function(a, b) {
 //     return a + b;
 // };
 
+// console.log(Object.prototype.sum(12, 12));
 
-// console.log(sum(12 + 12));
+// console.log(Object.prototype);
  
 
 

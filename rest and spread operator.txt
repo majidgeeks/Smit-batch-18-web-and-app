@@ -1,0 +1,88 @@
+rest operator
+
+❌ Without Rest Operator
+function sum(a, b, c) {
+  return a + b + c;
+}
+
+sum(1, 2, 3);
+
+
+
+with rest operator
+function sum(...numbers) {
+  console.log(numbers); // will receive array 
+}
+
+sum(1, 2, 3, 4, 5);
+
+
+ Array Destructuring with Rest
+let arr = [1, 2, 3, 4, 5];
+
+let [a, b, ...rest] = arr;
+
+console.log(a);    // 1
+console.log(b);    // 2
+console.log(rest); // [3, 4, 5]
+
+
+Object Destructuring with Rest
+let obj = {
+  name: "Majid",
+  age: 22,
+  city: "Karachi"
+};
+
+let { name, ...rest } = obj;
+
+console.log(name); // Majid
+console.log(rest); // { age: 22, city: "Karachi" }
+
+
+spread operator
+
+spread Array 
+let arr1 = [1, 2, 3];
+
+let arr2 = [...arr1];
+
+console.log(arr2); 
+
+
+ Arrays  Merge 
+let a = [1, 2];
+let b = [3, 4];
+
+let result = [...a, ...b];
+
+console.log(result);
+// [1, 2, 3, 4]
+
+
+ Spread in object
+
+let user = {
+  name: "Majid",
+  age: 22
+};
+
+let updatedUser = {
+  ...user,
+  city: "Karachi"
+};
+
+console.log(updatedUser);
+
+
+ Object Override Example (Very Important 🔥)
+let obj = { name: "Ali", age: 20 };
+
+let newObj = { 
+  ...obj,
+  age: 25 
+};
+
+console.log(newObj);
+
+

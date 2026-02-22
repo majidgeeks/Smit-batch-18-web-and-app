@@ -1,0 +1,20 @@
+Callback Function Kya Hota Hai?
+
+ Jab hum kisi function ko kisi dusre function ke argument ke taur par pass karte hain, usay callback function kehte hain.
+
+Simple lafzon mein definition:
+
+"Function jo kisi aur function ke andar call hota hai, woh callback hota hai."
+
+ Basic Example
+
+function greet(name) {
+  console.log("Hello " + name);
+}
+
+function processUser(callback) {
+  let username = "Majid";
+  callback(username);
+}
+
+processUser(greet);

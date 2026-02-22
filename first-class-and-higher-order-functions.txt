@@ -1,0 +1,100 @@
+First-Class Functions
+
+Simple words me definition:
+
+ JavaScript me functions ko values ki tarah treat kiya jata hai
+
+Matlab:
+
+Function ko variable me store kar sakte ho
+
+Function ko argument me pass kar sakte ho
+
+Function ko return kar sakte ho
+
+
+
+Example 1 – Function as a Variable
+
+let greet = function() {
+    console.log("Hello Students");
+};
+
+greet();
+
+
+Example 2 – Pass a function in argument
+
+function sayHello() {
+    console.log("Hello");
+}
+
+function callFunction(fn) {
+    fn();
+}
+
+callFunction(sayHello);
+
+
+
+Example 3 – Return a Function
+
+function outer() {
+    return function() {
+        console.log("Inner function");
+    };
+}
+
+let result = outer();
+result();
+
+
+
+
+Higher-Order Function
+
+
+ Wo function jo:
+
+Kisi function ko argument me le
+ya
+
+Kisi function ko return kare
+
+Usay Higher-Order Function kehte hain.
+
+
+Example 1 – Function as Argument
+function calculator(a, b, operation) {
+    return operation(a, b);
+}
+
+function add(x, y) {
+    return x + y;
+}
+
+console.log(calculator(5, 3, add));
+
+
+Example 2 – Built-in Higher Order Function
+
+let numbers = [1, 2, 3, 4];
+
+numbers.forEach(function(num) {
+    console.log(num);
+});
+
+
+Real World Example 
+
+function greetUser(name, callback) {
+    console.log("Hi " + name);
+    callback();
+}
+
+function sayBye() {
+    console.log("Goodbye!");
+}
+
+greetUser("Majid", sayBye);
+

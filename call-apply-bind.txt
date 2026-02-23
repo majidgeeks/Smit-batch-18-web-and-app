@@ -1,0 +1,79 @@
+Call, Apply, Bind Kya Hain?
+
+ Yeh teenon methods function ke context (this) ko control karne ke liye use hote hain.
+
+Simple definition:
+
+Call, Apply aur Bind ka kaam hota hai this ko manually set karna.
+
+Example with this
+
+let person = {
+  name: "Majid",
+  greet: function() {
+    console.log("Hello " + this.name);
+  }
+};
+
+person.greet(); 
+
+
+example 2 
+
+let person1 = {
+  name: "Ali"
+};
+
+let person2 = {
+  name: "Ahmed"
+};
+
+function greet() {
+  console.log("Hello " + this.name);
+}
+
+greet();
+
+
+CALL Method
+
+greet.call(person1);
+greet.call(person2);
+
+
+Apply method
+
+let person1 = {
+  name: "Ali"
+};
+
+function introduce(age, city) {
+  console.log(this.name + " is " + age + " from " + city);
+}
+
+introduce.apply(person1, [25, "Karachi"]);
+
+
+Bind method
+
+bind() function ko foran call nahi karta.
+ Yeh ek naya function return karta hai jiska this permanently set ho jata hai.
+
+Simple definition:
+
+Bind future ke liye this fix kar deta hai.
+
+
+Example
+
+let person1 = {
+  name: "Ali"
+};
+
+function greet() {
+  console.log("Hello " + this.name);
+}
+
+let newFunc = greet.bind(person1);
+
+newFunc(); 

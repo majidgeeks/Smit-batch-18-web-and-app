@@ -104,13 +104,31 @@
 //  ).finally(() => console.log('final chala'))
 
 
-try{
+// try{
 
-    fetch('https://jsonplaceholder.typicode.com/todos')
-    .then((response) => response.json())
-    .then((data) => console.log(data)
-)
-.catch((err) => console.log(err))
-}catch(error){
-  console.log('error',error);
-}
+//     fetch('https://jsonplaceholder.typicode.com/todos')
+//     .then((response) => response.json())
+//     .then((data) => console.log(data)
+// )
+// .catch((err) => console.log(err))
+// }catch(error){
+//   console.log('error',error);
+// }
+
+// let newProm = new Promise((resolve, reject) => {
+//   // // resolve('kam ho gaya')
+//   // console.log('kam ho gaya');
+//   // resolve()
+//   let user = true;
+//   if(user){
+//     // console.log('kam ho gaya');
+//     resolve('kam ho gaya')
+//   }else{
+//     reject('koi treat nahi hai');
+//   }
+// });
+
+// newProm.then((aftari) => console.log(aftari)
+// )
+// .catch((err) => console.log(err))
+

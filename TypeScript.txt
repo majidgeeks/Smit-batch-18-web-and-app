@@ -1,0 +1,111 @@
+✅ STEP 1: Project Folder Structure
+
+Apne project ka structure aisa rakho:
+
+project-folder/
+│
+├── index.html
+├── app.ts
+
+
+✅ STEP 2: TypeScript Install Karna
+
+Terminal open karo (project folder ke andar) aur run karo:
+
+npm init -y
+
+Phir:
+
+npm install typescript --save-dev
+
+Check karo install hua ya nahi:
+
+npx tsc -v
+
+
+✅ STEP 3: TypeScript Config File Banao
+
+Ab run karo:
+
+npx tsc --init
+
+Ye ek file banayega:
+
+tsconfig.json
+
+Ye TypeScript ka control center hota hai 
+
+
+✅ STEP 4: app.ts File Banao
+
+Ab project me app.ts file banao.
+
+let message: string = "Hello TypeScript";
+console.log(message);
+
+
+✅ STEP 5: Compile TypeScript
+
+Ab run karo:
+
+npx tsc
+
+Agar tsconfig properly bana hai to ye automatically generate karega:
+
+app.js
+
+Ab structure aisa hoga:
+
+project-folder/
+│
+├── index.html
+├── app.ts
+├── app.js
+├── tsconfig.json
+
+
+
+Flow yaad karao:
+
+app.ts  →  Compile  →  app.js  →  Browser
+
+Browser sirf JavaScript samajhta hai.
+
+⚡ BONUS (Auto Compile Mode)
+
+Har baar manually compile na karna pade:
+
+npx tsc --watch
+
+
+Ab jab bhi tum app.ts save karoge
+app.js automatically update ho jayega.
+
+
+tsconfig.json open karo
+aur "module" change karo:
+
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es6"
+  }
+}
+
+
+Save karo.
+
+Phir dobara run karo:
+
+npx tsc
+
+Ab browser refresh karo —
+
+
+HTML me script ko module bana do:
+
+<script type="module" src="app.js"></script>
+
+Aur tsconfig.json me:
+
+"module": "ES6"

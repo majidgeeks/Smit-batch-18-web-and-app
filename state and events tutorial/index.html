@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>React Fundamentals Presentation</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 0;
+    }
+
+    .slide {
+      background: white;
+      padding: 50px;
+      margin-bottom: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      font-size: 42px;
+      color: #0f172a;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 32px;
+      color: #2563eb;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #1e293b;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      margin-left: 25px;
+      margin-bottom: 20px;
+    }
+
+    ul li {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table th,
+    table td {
+      border: 1px solid #ddd;
+      padding: 14px;
+      text-align: left;
+      font-size: 17px;
+    }
+
+    table th {
+      background: #2563eb;
+      color: white;
+    }
+
+    code {
+      background: #eef2ff;
+      padding: 2px 6px;
+      border-radius: 5px;
+      color: #7c3aed;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 25px;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      background: #dbeafe;
+      padding: 20px;
+      border-left: 6px solid #2563eb;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .title-slide {
+      background: linear-gradient(135deg, #2563eb, #1e3a8a);
+      color: white;
+      text-align: center;
+      padding: 100px 40px;
+    }
+
+    .title-slide h1 {
+      color: white;
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+
+    .title-slide p {
+      font-size: 24px;
+    }
+
+    .thank-you {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: white;
+      text-align: center;
+      padding: 100px 40px;
+    }
+
+    .thank-you h1 {
+      color: white;
+      font-size: 60px;
+    }
+
+    @media(max-width: 768px) {
+      .slide {
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      pre {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <section class="slide title-slide">
+      <h1>React Fundamentals</h1>
+      <p>Professional Presentation for Students</p>
+    </section>
+
+    <section class="slide">
+      <h2>Topics Covered</h2>
+
+      <ul>
+        <li>What is State?</li>
+        <li>How to Handle Events in React?</li>
+        <li>useState in Depth</li>
+        <li>State vs Props</li>
+        <li>State Management</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>What is State?</h2>
+
+      <p>
+        State is a built-in React feature used to store dynamic data inside a component.
+      </p>
+
+      <div class="highlight">
+        <strong>Definition:</strong>
+        State is data that can change over time.
+      </div>
+
+      <h3>Examples</h3>
+
+      <ul>
+        <li>Counter value</li>
+        <li>Input field data</li>
+        <li>Dark mode toggle</li>
+        <li>Cart items</li>
+        <li>Loading status</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>State Example</h2>
+
+      <pre>
+<code>
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;{count}&lt;/h1&gt;
+
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Increase
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default Counter;
+</code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Understanding useState</h2>
+
+      <pre>
+<code>
+const [count, setCount] = useState(0);
+</code>
+      </pre>
+
+      <table>
+        <tr>
+          <th>Part</th>
+          <th>Meaning</th>
+        </tr>
+
+        <tr>
+          <td>count</td>
+          <td>Current state value</td>
+        </tr>
+
+        <tr>
+          <td>setCount</td>
+          <td>Function to update state</td>
+        </tr>
+
+        <tr>
+          <td>useState(0)</td>
+          <td>Initial value</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="slide">
+      <h2>Important Points About State</h2>
+
+      <ul>
+        <li>State is mutable</li>
+        <li>State updates trigger re-rendering</li>
+        <li>Every component can have its own state</li>
+        <li>State helps create dynamic UI</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Handling Events in React</h2>
+
+      <p>
+        Events are user interactions with the application.
+      </p>
+
+      <table>
+        <tr>
+          <th>Event</th>
+          <th>Purpose</th>
+        </tr>
+
+        <tr>
+          <td>onClick</td>
+          <td>Handle button click</td>
+        </tr>
+
+        <tr>
+          <td>onChange</td>
+          <td>Handle input changes</td>
+        </tr>
+
+        <tr>
+          <td>onSubmit</td>
+          <td>Handle form submission</td>
+        </tr>
+
+        <tr>
+          <td>onMouseEnter</td>
+          <td>Handle mouse hover</td>
+        </tr>
+
+        <tr>
+          <td>onKeyDown</td>
+          <td>Handle keyboard press</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="slide">
+      <h2>Button Click Example</h2>
+
+      <pre>
+<code>
+function App() {
+
+  function handleClick() {
+    alert("Button Clicked");
+  }
+
+  return (
+    &lt;button onClick={handleClick}&gt;
+      Click Me
+    &lt;/button&gt;
+  );
+}
+
+export default App;
+</code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Input Change Example</h2>
+
+      <pre>
+<code>
+import { useState } from "react";
+
+function App() {
+
+  const [name, setName] = useState("");
+
+  return (
+    &lt;div&gt;
+
+      &lt;input
+        type="text"
+        onChange={(e) =&gt; setName(e.target.value)}
+      /&gt;
+
+      &lt;h1&gt;{name}&lt;/h1&gt;
+
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>useState in Depth</h2>
+
+      <p>
+        useState is a React Hook that allows functional components to use state.
+      </p>
+
+      <pre>
+<code>
+const [state, setState] = useState(initialValue);
+</code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Different Types of State</h2>
+
+      <h3>String State</h3>
+
+      <pre><code>const [name, setName] = useState("Majid");</code></pre>
+
+      <h3>Number State</h3>
+
+      <pre><code>const [count, setCount] = useState(0);</code></pre>
+
+      <h3>Boolean State</h3>
+
+      <pre><code>const [darkMode, setDarkMode] = useState(false);</code></pre>
+
+      <h3>Array State</h3>
+
+      <pre><code>const [users, setUsers] = useState([]);</code></pre>
+
+      <h3>Object State</h3>
+
+      <pre><code>const [user, setUser] = useState({ name: "Ali", age: 20 });</code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>Updating State</h2>
+
+      <h3>Updating Number</h3>
+
+      <pre><code>setCount(count + 1);</code></pre>
+
+      <h3>Updating Object</h3>
+
+      <pre>
+<code>
+setUser({
+  ...user,
+  age: 25
+});
+</code>
+      </pre>
+
+      <div class="highlight">
+        Spread operator preserves previous object data.
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Rules of useState</h2>
+
+      <h3>Never Update State Directly ❌</h3>
+
+      <pre>
+<code>
+count = count + 1;
+</code>
+      </pre>
+
+      <h3>Correct Way ✅</h3>
+
+      <pre>
+<code>
+setCount(count + 1);
+</code>
+      </pre>
+
+      <ul>
+        <li>State updates are asynchronous</li>
+        <li>Components automatically re-render after state updates</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>State vs Props</h2>
+
+      <table>
+        <tr>
+          <th>State</th>
+          <th>Props</th>
+        </tr>
+
+        <tr>
+          <td>Mutable</td>
+          <td>Immutable</td>
+        </tr>
+
+        <tr>
+          <td>Managed inside component</td>
+          <td>Passed from parent component</td>
+        </tr>
+
+        <tr>
+          <td>Can change</td>
+          <td>Read-only</td>
+        </tr>
+
+        <tr>
+          <td>Dynamic data</td>
+          <td>Receive data</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="slide">
+      <h2>Props Example</h2>
+
+      <pre>
+<code>
+import Child from "./Child";
+
+function App() {
+
+  return (
+    &lt;div&gt;
+      &lt;Child name="Majid" /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Child Component</h2>
+
+      <pre>
+<code>
+function Child(props) {
+
+  return (
+    &lt;h1&gt;{props.name}&lt;/h1&gt;
+  );
+}
+
+export default Child;
+</code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>State Management</h2>
+
+      <p>
+        State Management means organizing and managing application data efficiently.
+      </p>
+
+      <h3>Why Needed?</h3>
+
+      <ul>
+        <li>Multiple components need same data</li>
+        <li>Prop drilling problems</li>
+        <li>Large application structure</li>
+        <li>Centralized data management</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Types of State Management</h2>
+
+      <table>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+
+        <tr>
+          <td>Local State</td>
+          <td>State inside a single component</td>
+        </tr>
+
+        <tr>
+          <td>Global State</td>
+          <td>Shared across application</td>
+        </tr>
+
+        <tr>
+          <td>Server State</td>
+          <td>Data coming from APIs</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="slide">
+      <h2>Prop Drilling Problem</h2>
+
+      <pre>
+<code>
+App → Parent → Child → GrandChild
+</code>
+      </pre>
+
+      <p>
+        Passing data through multiple components becomes difficult.
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>Solutions for State Management</h2>
+
+      <h3>1. Context API</h3>
+
+      <pre>
+<code>
+&lt;UserContext.Provider value={user}&gt;
+</code>
+      </pre>
+
+      <h3>2. Redux</h3>
+
+      <ul>
+        <li>Centralized store</li>
+        <li>Predictable state</li>
+        <li>Easy debugging</li>
+      </ul>
+
+      <h3>3. Zustand</h3>
+
+      <ul>
+        <li>Lightweight</li>
+        <li>Simple syntax</li>
+        <li>Fast performance</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Real World Examples</h2>
+
+      <table>
+        <tr>
+          <th>Feature</th>
+          <th>State Used</th>
+        </tr>
+
+        <tr>
+          <td>Login System</td>
+          <td>User data</td>
+        </tr>
+
+        <tr>
+          <td>Ecommerce Cart</td>
+          <td>Cart items</td>
+        </tr>
+
+        <tr>
+          <td>Theme Switcher</td>
+          <td>Dark / Light mode</td>
+        </tr>
+
+        <tr>
+          <td>Search Bar</td>
+          <td>Search text</td>
+        </tr>
+
+        <tr>
+          <td>Loader</td>
+          <td>Loading state</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="slide">
+      <h2>Final Summary</h2>
+
+      <table>
+        <tr>
+          <th>Topic</th>
+          <th>Main Idea</th>
+        </tr>
+
+        <tr>
+          <td>State</td>
+          <td>Dynamic data</td>
+        </tr>
+
+        <tr>
+          <td>Events</td>
+          <td>Handle user actions</td>
+        </tr>
+
+        <tr>
+          <td>useState</td>
+          <td>Create and update state</td>
+        </tr>
+
+        <tr>
+          <td>Props</td>
+          <td>Receive data from parent</td>
+        </tr>
+
+        <tr>
+          <td>State Management</td>
+          <td>Manage application data</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="slide thank-you">
+      <h1>Thank You</h1>
+      <p>Questions?</p>
+    </section>
+
+  </div>
+
+</body>
+</html>

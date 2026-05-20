@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>React Lifecycle & useEffect Complete Guide</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f9;
+      color: #222;
+      line-height: 1.7;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0f172a;
+      font-size: 40px;
+    }
+
+    .subtitle {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #555;
+      font-size: 18px;
+    }
+
+    section {
+      background: white;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #2563eb;
+    }
+
+    h3 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      font-size: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table th,
+    table td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+    }
+
+    table th {
+      background: #2563eb;
+      color: white;
+    }
+
+    .tip {
+      background: #e0f2fe;
+      border-left: 5px solid #0284c7;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 8px;
+    }
+
+    .warning {
+      background: #fee2e2;
+      border-left: 5px solid #dc2626;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>React Lifecycle & useEffect Guide</h1>
+    <p class="subtitle">
+      Complete classroom notes with examples for teaching React Hooks and Lifecycle.
+    </p>
+
+
+    <section>
+      <h2>1. Component Lifecycle in React</h2>
+
+      <p>
+        Every React component goes through different phases during its life.
+        These phases are called the Component Lifecycle.
+      </p>
+
+      <h3>Main Lifecycle Phases</h3>
+
+      <ul>
+        <li><strong>Mounting</strong> → Component is created and shown on screen.</li>
+        <li><strong>Updating</strong> → Component re-renders when state or props change.</li>
+        <li><strong>Unmounting</strong> → Component is removed from the screen.</li>
+      </ul>
+
+      <h3>Mounting Example</h3>
+
+      <pre><code>useEffect(() => {
+  console.log("Component Mounted")
+}, [])</code></pre>
+
+      <h3>Updating Example</h3>
+
+      <pre><code>useEffect(() => {
+  console.log("Count Updated")
+}, [count])</code></pre>
+
+      <h3>Unmounting Example</h3>
+
+      <pre><code>useEffect(() => {
+
+  return () => {
+    console.log("Component Unmounted")
+  }
+
+}, [])</code></pre>
+
+    </section>
+
+
+    <section>
+      <h2>2. Wrong Ways of Fetching Data</h2>
+
+      <p>
+        Students should avoid these common mistakes while fetching data.
+      </p>
+
+      <h3>Wrong Way #1 → Fetching directly inside component body</h3>
+
+      <pre><code>function App() {
+
+  fetch("https://jsonplaceholder.typicode.com/users")
+
+}</code></pre>
+
+      <div class="warning">
+        <strong>Problem:</strong>
+        API will call on every render which can cause infinite requests.
+      </div>
+
+
+      <h3>Wrong Way #2 → Missing Dependency Array</h3>
+
+      <pre><code>useEffect(() => {
+  fetchData()
+})</code></pre>
+
+      <div class="warning">
+        <strong>Problem:</strong>
+        useEffect runs after every render.
+      </div>
+
+
+      <h3>Wrong Way #3 → Async directly inside useEffect</h3>
+
+      <pre><code>useEffect(async () => {
+
+})</code></pre>
+
+      <div class="warning">
+        <strong>Problem:</strong>
+        React does not expect an async callback directly.
+      </div>
+
+    </section>
+
+
+    <section>
+      <h2>3. useEffect in Detail and Benefits</h2>
+
+      <p>
+        useEffect is a React Hook used for handling side effects.
+      </p>
+
+      <h3>What are Side Effects?</h3>
+
+      <ul>
+        <li>API Calls</li>
+        <li>Timers</li>
+        <li>Event Listeners</li>
+        <li>Local Storage</li>
+        <li>DOM Manipulation</li>
+      </ul>
+
+
+      <h3>Basic Syntax</h3>
+
+      <pre><code>useEffect(() => {
+
+  // side effect code
+
+}, [])</code></pre>
+
+
+      <h3>Benefits of useEffect</h3>
+
+      <ul>
+        <li>Helps fetch data from APIs</li>
+        <li>Runs code after rendering</li>
+        <li>Makes code cleaner and organized</li>
+        <li>Replaces old lifecycle methods from class components</li>
+      </ul>
+
+
+      <div class="tip">
+        <strong>Important:</strong>
+        useEffect runs after the component renders.
+      </div>
+
+    </section>
+
+
+    <section>
+      <h2>4. useEffect Dependency Array</h2>
+
+      <p>
+        The dependency array controls when useEffect should run.
+      </p>
+
+
+      <h3>1. Empty Dependency Array</h3>
+
+      <pre><code>useEffect(() => {
+  console.log("Run only once")
+}, [])</code></pre>
+
+      <p>
+        Runs only on first render.
+      </p>
+
+
+      <h3>2. Dependency Included</h3>
+
+      <pre><code>useEffect(() => {
+  console.log("Count changed")
+}, [count])</code></pre>
+
+      <p>
+        Runs whenever count changes.
+      </p>
+
+
+      <h3>3. Without Dependency Array</h3>
+
+      <pre><code>useEffect(() => {
+  console.log("Runs every render")
+})</code></pre>
+
+      <p>
+        Runs after every render.
+      </p>
+
+    </section>
+
+
+    <section>
+      <h2>5. Async Function Handling in useEffect</h2>
+
+      <p>
+        The correct way is to create an async function inside useEffect.
+      </p>
+
+
+      <pre><code>useEffect(() => {
+
+  const fetchData = async () => {
+
+    let response = await fetch(
+      "https://jsonplaceholder.typicode.com/users"
+    )
+
+    let data = await response.json()
+
+    console.log(data)
+  }
+
+  fetchData()
+
+}, [])</code></pre>
+
+
+      <div class="tip">
+        <strong>Why?</strong>
+        useEffect itself should not be async.
+      </div>
+
+    </section>
+
+
+    <section>
+      <h2>6. useEffect Cleanup</h2>
+
+      <p>
+        Cleanup functions remove unnecessary processes when a component unmounts.
+      </p>
+
+
+      <h3>Common Cleanup Examples</h3>
+
+      <ul>
+        <li>Clearing Timers</li>
+        <li>Removing Event Listeners</li>
+        <li>Stopping Subscriptions</li>
+      </ul>
+
+
+      <h3>Timer Cleanup Example</h3>
+
+      <pre><code>useEffect(() => {
+
+  let timer = setInterval(() => {
+    console.log("Running...")
+  }, 1000)
+
+
+  return () => {
+    clearInterval(timer)
+  }
+
+}, [])</code></pre>
+
+
+      <div class="tip">
+        <strong>Benefit:</strong>
+        Cleanup prevents memory leaks and improves performance.
+      </div>
+
+    </section>
+
+
+    <section>
+      <h2>Quick Summary</h2>
+
+      <table>
+        <tr>
+          <th>Topic</th>
+          <th>Purpose</th>
+        </tr>
+
+        <tr>
+          <td>Component Lifecycle</td>
+          <td>Understanding component phases</td>
+        </tr>
+
+        <tr>
+          <td>useEffect</td>
+          <td>Handling side effects</td>
+        </tr>
+
+        <tr>
+          <td>Dependency Array</td>
+          <td>Controlling effect execution</td>
+        </tr>
+
+        <tr>
+          <td>Async Handling</td>
+          <td>Managing API calls safely</td>
+        </tr>
+
+        <tr>
+          <td>Cleanup Function</td>
+          <td>Avoiding memory leaks</td>
+        </tr>
+      </table>
+
+    </section>
+
+
+    <section>
+      <h2>Classroom Practice Idea</h2>
+
+      <p>
+        Build a small API project using:
+      </p>
+
+      <ul>
+        <li>useEffect</li>
+        <li>API Fetching</li>
+        <li>Loading State</li>
+        <li>Error Handling</li>
+        <li>Cleanup Function</li>
+      </ul>
+
+      <!-- <p>
+        This will help students understand real-world React concepts.
+      </p> -->
+
+    </section>
+
+
+    <footer>
+      React Hooks Class Notes | Prepared for Live Teaching Session
+    </footer>
+
+  </div>
+
+</body>
+</html>

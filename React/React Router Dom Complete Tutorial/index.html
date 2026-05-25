@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>React Router DOM – Complete Teaching Guide</title>
+<style>
+    body{
+        margin:0;
+        font-family:Arial, sans-serif;
+        background:#0f172a;
+        color:#e2e8f0;
+        line-height:1.7;
+    }
+
+    header{
+        background:linear-gradient(135deg,#4f46e5,#06b6d4);
+        padding:30px;
+        text-align:center;
+    }
+
+    header h1{
+        margin:0;
+        font-size:30px;
+    }
+
+    header p{
+        margin-top:8px;
+        opacity:0.9;
+    }
+
+    .container{
+        max-width:1000px;
+        margin:auto;
+        padding:20px;
+    }
+
+    .card{
+        background:#1e293b;
+        padding:20px;
+        margin-bottom:20px;
+        border-radius:12px;
+        box-shadow:0 0 10px rgba(0,0,0,0.3);
+    }
+
+    h2{ color:#38bdf8; }
+    h3{ color:#60a5fa; margin-top:15px; }
+
+    pre{
+        background:#0b1220;
+        padding:15px;
+        border-radius:10px;
+        overflow-x:auto;
+        color:#22c55e;
+        white-space:pre-wrap;
+    }
+
+    code{ display:block; }
+
+    .note{
+        background:#334155;
+        padding:10px;
+        border-left:5px solid #38bdf8;
+        margin-top:10px;
+    }
+
+    ul{ padding-left:20px; }
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+        margin-top:10px;
+    }
+
+    td,th{
+        border:1px solid #334155;
+        padding:10px;
+    }
+
+    footer{
+        text-align:center;
+        padding:20px;
+        background:#0b1220;
+        font-size:14px;
+        opacity:0.7;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>React Router DOM – Complete Teaching Guide</h1>
+    <p>Step-by-step professional guide for teaching React Routing</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>1. Introduction</h2>
+<p>React Router DOM is used to create multiple pages in React applications without reloading the page.</p>
+<p>Example pages:</p>
+<ul>
+<li>Home Page</li>
+<li>About Page</li>
+<li>Contact Page</li>
+<li>Dashboard</li>
+</ul>
+<p>All of these work in a Single Page Application (SPA) style.</p>
+</div>
+
+<div class="card">
+<h2>2. Installation</h2>
+<pre><code>npm install react-router-dom</code></pre>
+</div>
+
+<div class="card">
+<h2>3. Basic Folder Structure</h2>
+<pre><code>src/
+ ├── pages/
+ │    ├── Home.jsx
+ │    ├── About.jsx
+ │    └── Contact.jsx
+ │
+ ├── App.jsx
+ └── main.jsx</code></pre>
+</div>
+
+<div class="card">
+<h2>4. BrowserRouter Setup (main.jsx)</h2>
+<p>Wrap the entire application inside BrowserRouter.</p>
+<pre><code>import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import { BrowserRouter } from 'react-router-dom'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+)</code></pre>
+</div>
+
+<div class="card">
+<h2>5. Creating Pages</h2>
+
+<h3>Home.jsx</h3>
+<pre><code>function Home() {
+  return <h1>Home Page</h1>
+}
+export default Home</code></pre>
+
+<h3>About.jsx</h3>
+<pre><code>function About() {
+  return <h1>About Page</h1>
+}
+export default About</code></pre>
+
+<h3>Contact.jsx</h3>
+<pre><code>function Contact() {
+  return <h1>Contact Page</h1>
+}
+export default Contact</code></pre>
+</div>
+
+<div class="card">
+<h2>6. Routes Setup (App.jsx)</h2>
+<pre><code>import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import About from './pages/About'
+import Contact from './pages/Contact'
+
+function App() {
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/about" element={<About />} />
+
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </>
+  )
+}
+export default App</code></pre>
+</div>
+
+<div class="card">
+<h2>Important Concept</h2>
+<p><b>Route Syntax</b></p>
+<pre><code><Route path="/about" element={<About />} /></code></pre>
+
+<table>
+<tr><th>Part</th><th>Meaning</th></tr>
+<tr><td>path</td><td>URL path</td></tr>
+<tr><td>element</td><td>Component to render</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>7. Navigation using Link</h2>
+<p>We use Link instead of anchor tag to prevent page reload.</p>
+
+<h3>App.jsx with Link</h3>
+<pre><code>import { Routes, Route, Link } from 'react-router-dom'
+import Home from './pages/Home'
+import About from './pages/About'
+import Contact from './pages/Contact'
+
+function App() {
+  return (
+    <>
+      <nav>
+        <Link to="/">Home</Link>
+
+        <Link to="/about">About</Link>
+
+        <Link to="/contact">Contact</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </>
+  )
+}
+export default App</code></pre>
+</div>
+
+<div class="card">
+<h2>8. Link vs Anchor Tag</h2>
+<table>
+<tr><th>Link</th><th>Anchor Tag</th></tr>
+<tr><td>No page reload</td><td>Page reloads</td></tr>
+<tr><td>SPA behavior</td><td>Traditional behavior</td></tr>
+<tr><td>Fast navigation</td><td>Slow navigation</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>9. useNavigate Hook</h2>
+<pre><code>import { useNavigate } from 'react-router-dom'
+
+function Login() {
+  const navigate = useNavigate()
+
+  const handleLogin = () => {
+    alert("Login Success")
+    navigate('/dashboard')
+  }
+
+  return (
+    <>
+      <h1>Login Page</h1>
+      <button onClick={handleLogin}>Login</button>
+    </>
+  )
+}
+export default Login</code></pre>
+</div>
+
+<div class="card">
+<h2>10. Dynamic Routing</h2>
+<p>Used to pass dynamic values in URL.</p>
+<p>Example:</p>
+<ul>
+<li>/product/1</li>
+<li>/product/2</li>
+</ul>
+
+<p>Route Setup</p>
+<pre><code><Route path="/product/:id" element={<Product />} /></code></pre>
+
+<p>Product.jsx</p>
+<pre><code>import { useParams } from 'react-router-dom'
+
+function Product() {
+  const params = useParams()
+
+  return (
+    <>
+      <h1>Product Details</h1>
+      <h2>Product ID: {params.id}</h2>
+    </>
+  )
+}
+export default Product</code></pre>
+</div>
+
+<div class="card">
+<h2>11. 404 Page</h2>
+<p>Used when route does not exist.</p>
+<pre><code>function NotFound() {
+  return <h1>404 Page Not Found</h1>
+}
+export default NotFound</code></pre>
+
+<pre><code><Route path="*" element={<NotFound />} /></code></pre>
+</div>
+
+<div class="card">
+<h2>12. Nested Routing</h2>
+<p>Routes inside routes using Outlet.</p>
+
+<p>Dashboard.jsx</p>
+<pre><code>import { Outlet, Link } from 'react-router-dom'
+
+function Dashboard() {
+  return (
+    <>
+      <h1>Dashboard</h1>
+
+      <Link to="profile">Profile</Link>
+      <Link to="settings">Settings</Link>
+
+      <Outlet />
+    </>
+  )
+}
+export default Dashboard</code></pre>
+
+<p>App.jsx</p>
+<pre><code><Route path="/dashboard" element={<Dashboard />}>
+  <Route path="profile" element={<h1>Profile Page</h1>} />
+  <Route path="settings" element={<h1>Settings Page</h1>} />
+</Route></code></pre>
+</div>
+
+<div class="card">
+<h2>13. NavLink</h2>
+<p>Used for active link styling.</p>
+<pre><code>import { NavLink } from 'react-router-dom'
+
+<NavLink
+  to="/about"
+  style={({ isActive }) => ({
+    color: isActive ? 'red' : 'black'
+  })}
+>
+  About
+</NavLink></code></pre>
+</div>
+
+</div>
+
+<footer>
+React Router DOM Complete Teaching Guide | Classroom Ready Notes
+</footer>
+
+</body>
+</html>
